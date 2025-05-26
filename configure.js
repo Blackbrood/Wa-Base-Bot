@@ -32,6 +32,11 @@ global.codeInvite = "" // Group invite code (if any)
 // API Keys (Fill if needed)
 global.openai_key = "your_openai_key" // For AI features
 global.capikey = "" // Remove if unused
+global.deepseek = {
+  apiKey: process.env.DEEPSEEK_API_KEY || "your-deepseek-api-key", // DeepSeek API key (use env variable for security)
+  endpoint: "https://api.deepseek.com/v1/chat/completions", // DeepSeek API endpoint
+  model: "deepseek-chat" // DeepSeek model (e.g., deepseek-chat for DeepSeek-V3)
+};
 
 // Media
 global.thumb = { url: 'https://i.imgur.com/your_thumb.jpg' } // Thumbnail
@@ -39,34 +44,25 @@ global.defaultpp = 'https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile
 
 // Messages
 global.mess = {
-    owner: '🔒 *Command reserved for owner only!*',
-    admin: '🔒 *Admins only!*',
-    group: '🚫 *Group-only feature!*',
-    private: '📩 *Use this in private chat.*',
-    done: '✅ *Done!*',
-    error: '❌ *Error!*',
-    wait: '⏳ *Loading...*',
-    success: '✨ *Success!*'
+  owner: '🔒 *Command reserved for owner only!*',
+  admin: '🔒 *Admins only!*',
+  group: '🚫 *Group-only feature!*',
+  private: '📩 *Use this in private chat.*',
+  done: '✅ *Done!*',
+  error: '❌ *Error!*',
+  wait: '⏳ *Loading...*',
+  success: '✨ *Success!*'
 }
 
 // Limits (Free/Premium users)
 global.limit = {
-    free: 10, // Free user limits
-    premium: 'Infinity' // Premium user limits
+  free: 10, // Free user limits
+  premium: 'Infinity' // Premium user limits
 }
 
 // Channel/Link Settings
 global.linkchannel = {
-    id: "120363372633282419@newsletter", // Channel ID (if any)
-    name: "𝙃𝙄𝙈 ⸙ 𝙎𝙃𝙊𝙋 متجر له🛍", // Channel name
-    link: "https://whatsapp.com/channel/0029VautBuL7NoZwPcAxlJ1a" // Your link
+  id: "120363372633282419@newsletter", // Channel ID (if any)
+  name: "𝙃𝙄𝙈 ⸙ 𝙎𝙃𝙊𝙋 متجر له🛍", // Channel name
+  link: "https://whatsapp.com/channel/0029VautBuL7NoZwPcAxlJ1a" // Your link
 }
-
-// File Auto-Refresher
-let file = require.resolve(__filename);
-fs.watchFile(file, () => {
-    fs.unwatchFile(file);
-    console.log(chalk.yellow(`🔁 Updated ${__filename}`));
-    delete require.cache[file];
-    require(file);
-});
