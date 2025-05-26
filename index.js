@@ -7,8 +7,8 @@ King Caesar
 📝 | Created By King Caesar
 📌 | Credits King Caesar 
 📱 | Chat wa: +2348078112891
-👑 | Github: Tennor-modz 
-✉️ | Email: giddytennor@gmail.com
+👑 | Github: Blackbrood 
+✉️ | Email: victorolutayo3@gmail.com
 */
 
 console.clear();
