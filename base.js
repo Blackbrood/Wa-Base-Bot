@@ -333,7 +333,7 @@ amount1000: 999,
 requestFrom: '0@s.whatsapp.net',
 noteMessage: {
 extendedTextMessage: {
-text: `𝐁𝐀𝐒𝐄-𝐁𝐎𝐓`
+text: `𝐉𝐮𝐠𝐠𝐞𝐫𝐧𝐮𝐭-𝐃𝐱`
 }
 },
 expiryTimestamp: 999999999,
@@ -454,10 +454,10 @@ let allmenu = tennortimewisher + ` *@${sender.split("@")[0]}* 👋🏻
                 isForwarded: true,
                externalAdReply: {
                    showAdAttribution: true,
-                   title: `𝐍𝐞𝐰 𝐖𝐚-𝐁𝐚𝐬𝐞 𝐁𝐨𝐭`,
+                   title: `𝐉𝐮𝐠𝐠𝐞𝐫𝐧𝐮𝐭-𝐃𝐱`,
                    mediaType: 3,
                    renderLargerThumbnail: false,
-                   thumbnailUrl: 'https://img12.pixhost.to/images/855/575167528_skyzopedia.jpg',
+                   thumbnailUrl: 'https://ibb.co/rRkt5Wj3',
                    sourceUrl: ``
                 }
             }
@@ -503,10 +503,10 @@ let allmenu = tennortimewisher + ` *@${sender.split("@")[0]}* 👋🏻
                 isForwarded: true,
                externalAdReply: {
                    showAdAttribution: true,
-                   title: `𝐍𝐞𝐰 𝐖𝐚-𝐁𝐚𝐬𝐞 𝐁𝐨𝐭`,
+                   title: `𝐉𝐮𝐠𝐠𝐞𝐫𝐧𝐮𝐭-𝐃𝐱`,
                    mediaType: 3,
                    renderLargerThumbnail: false,
-                   thumbnailUrl: 'https://img12.pixhost.to/images/855/575167528_skyzopedia.jpg',
+                   thumbnailUrl: 'https://ibb.co/rRkt5Wj3',
                    sourceUrl: ``
                 }
             }
@@ -573,16 +573,16 @@ let allmenu = tennortimewisher + ` *@${sender.split("@")[0]}* 👋🏻
             contextInfo: {
                 mentionedJid: [m.sender],
                 forwardedNewsletterMessageInfo: {
-                    newsletterName: "𝐌𝐮𝐥𝐭𝐢 𝐃𝐞𝐯𝐢𝐜𝐞 𝐁𝐨𝐭",
+                    newsletterName: "𝐉𝐮𝐠𝐠𝐞𝐫𝐧𝐮𝐭-𝐃𝐱",
                     newsletterJid: `120363418618707597@newsletter` 
                 },
                 isForwarded: true,
                externalAdReply: {
                    showAdAttribution: true,
-                   title: `𝐍𝐞𝐰 𝐖𝐚-𝐁𝐚𝐬𝐞 𝐁𝐨𝐭`,
+                   title: `𝐉𝐮𝐠𝐠𝐞𝐫𝐧𝐮𝐭-𝐃𝐱`,
                    mediaType: 3,
                    renderLargerThumbnail: false,
-                   thumbnailUrl: 'https://img12.pixhost.to/images/855/575167528_skyzopedia.jpg',
+                   thumbnailUrl: 'https://ibb.co/rRkt5Wj3',
                    sourceUrl: ``
                 }
             }
@@ -674,10 +674,10 @@ let allmenu = tennortimewisher + ` *@${sender.split("@")[0]}* 👋🏻
                 isForwarded: true,
                externalAdReply: {
                    showAdAttribution: true,
-                   title: `𝐍𝐞𝐰 𝐖𝐚-𝐁𝐚𝐬𝐞 𝐁𝐨𝐭`,
+                   title: `𝐉𝐮𝐠𝐠𝐞𝐫𝐧𝐮𝐭-𝐃𝐱`,
                    mediaType: 3,
                    renderLargerThumbnail: false,
-                   thumbnailUrl: 'https://img12.pixhost.to/images/855/575167528_skyzopedia.jpg',
+                   thumbnailUrl: 'https://ibb.co/rRkt5Wj3',
                    sourceUrl: ``
                 }
             }
@@ -729,7 +729,7 @@ let allmenu = tennortimewisher + ` *@${sender.split("@")[0]}* 👋🏻
                 isForwarded: true,
                externalAdReply: {
                    showAdAttribution: true,
-                   title: `𝐍𝐞𝐰 𝐖𝐚-𝐁𝐚𝐬𝐞 𝐁𝐨𝐭`,
+                   title: `𝐉𝐮𝐠𝐠𝐞𝐫𝐧𝐮𝐭-𝐃𝐱`,
                    mediaType: 3,
                    renderLargerThumbnail: false,
                    thumbnailUrl: 'https://img12.pixhost.to/images/855/575167528_skyzopedia.jpg',
